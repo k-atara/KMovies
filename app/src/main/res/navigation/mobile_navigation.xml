@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_home">
+
+    <fragment
+        android:id="@+id/navigation_home"
+        android:name="com.example.kmovies.ui.home.HomeFragment"
+        android:label="@string/title_home"
+        tools:layout="@layout/fragment_home" />
+
+    <fragment
+        android:id="@+id/navigation_playingnow"
+        android:name="com.example.kmovies.ui.playingNow.PlayingNowFragment"
+        android:label="@string/title_playingnow"
+        tools:layout="@layout/fragment_playingnow" >
+        <action
+            android:id="@+id/toDescriptionFragment"
+            app:destination="@id/descriptionFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_notifications"
+        android:name="com.example.kmovies.ui.mostpopular.MostPopularFragment"
+        android:label="@string/title_mostpopular"
+        tools:layout="@layout/fragment_mostpopular" />
+    <fragment
+        android:id="@+id/descriptionFragment"
+        android:name="com.example.kmovies.ui.description.DescriptionFragment"
+        android:label="@string/title_detail" >
+        <action
+            android:id="@+id/toNavigationPlayingnow"
+            app:destination="@id/navigation_playingnow" />
+        <argument
+            android:name="movie"
+            app:argType="com.example.kmovies.data.remote.model.MovieResponse" />
+    </fragment>
+</navigation>

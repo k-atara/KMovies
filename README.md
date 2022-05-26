@@ -1,8 +1,8 @@
 # Hola bienvenido a mi repositorio 😎
 
-## Nombre:
+### Nombre:
  - Kimberly Atara Lopez Vazquez
-## Carrera:
+### Carrera:
  - Ingeniería en tecnologías computacionales
 
 ## Ejercicio Técnico (App de Películas/Series)

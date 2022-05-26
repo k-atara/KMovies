@@ -2,6 +2,8 @@
 
 ## Nombre:
  - Kimberly Atara Lopez Vazquez
+## Carrera:
+ - Ingeniería en tecnologías computacionales
 
 ## Ejercicio Técnico (App de Películas/Series)
 ### Requerimientos

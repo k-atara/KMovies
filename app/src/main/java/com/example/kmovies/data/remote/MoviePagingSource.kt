@@ -10,14 +10,15 @@ private const val STARTING_PAGE_INDEX = 1
 
 class MoviePagingSource (
     private val movieApi: MovieService,
-    private val query: String?
+    private val query: String?,
+    private val popular: Boolean? = false
 ): PagingSource<Int, MovieResponse>() {
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int, MovieResponse> {
-
-
         return try {
             val position = params.key ?: STARTING_PAGE_INDEX
-            val response = if (query!=null) movieApi.searchMovies(query,position) else movieApi.getNowPlayingMovies(position)
+            val response = if (query != null) movieApi.searchMovies(query,position)
+                            else if(popular == true) movieApi.getPopularMovies(position)
+                            else movieApi.getNowPlayingMovies(position)
             val movies = response.results
 
             LoadResult.Page(

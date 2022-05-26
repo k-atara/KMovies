@@ -4,17 +4,18 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.observe
 import androidx.navigation.fragment.findNavController
 import androidx.paging.LoadState
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.example.kmovies.data.remote.model.MovieResponse
 import com.example.kmovies.databinding.FragmentPlayingnowBinding
-import com.example.kmovies.ui.description.DescriptionFragmentDirections
+import com.example.kmovies.util.MovieUIState
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
@@ -45,14 +46,15 @@ class PlayingNowFragment : Fragment(), PlayingNowAdapter.OnItemClickListener {
             }
         }
 
-        viewModel.collectMovies().observe(viewLifecycleOwner){
-            adapter.submitData(viewLifecycleOwner.lifecycle, it)
+        viewLifecycleOwner.lifecycleScope.launch {
+            setObservable(adapter)
         }
 
         adapter.addLoadStateListener { loadState ->
             binding.apply {
                 progressBar.isVisible = loadState.source.refresh is LoadState.Loading
                 playinNowList.isVisible = loadState.source.refresh is LoadState.NotLoading
+                txtError.isVisible =loadState.source.refresh is LoadState.Error
                 btnTryAgain.isVisible =loadState.source.refresh is LoadState.Error
 
                 if (loadState.source.refresh is LoadState.NotLoading &&
@@ -62,11 +64,38 @@ class PlayingNowFragment : Fragment(), PlayingNowAdapter.OnItemClickListener {
                 }
             }
         }
+        observeUI()
         return binding.root
     }
 
     override fun onItemClick(movie: MovieResponse) {
-        findNavController().navigate(PlayingNowFragmentDirections.toDescriptionFragment(movie))
+        viewModel.getMovie(movie.id)
     }
 
+    private fun setObservable(adapter: PlayingNowAdapter) = viewLifecycleOwner.lifecycleScope.launch{
+        viewModel.collectMovies().observeForever {
+            adapter.submitData(viewLifecycleOwner.lifecycle, it)
+        }
+    }
+
+    private fun observeUI() {
+        viewModel.movieState.observe(viewLifecycleOwner) {
+            when (it) {
+                is MovieUIState.Success -> {
+                    binding.progressBar.visibility = View.GONE
+                    findNavController().navigate(PlayingNowFragmentDirections.toDescriptionFragment(it.movie))
+                }
+                is MovieUIState.Error -> {
+                    binding.progressBar.visibility = View.GONE
+                    it.error.let { message ->
+                        Toast.makeText(activity, message, Toast.LENGTH_LONG).show()
+                    }
+                }
+                is MovieUIState.Loading -> {
+                    binding.progressBar.visibility = View.VISIBLE
+                }
+            }
+
+        }
+    }
 }

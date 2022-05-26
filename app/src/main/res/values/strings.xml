@@ -4,4 +4,8 @@
     <string name="title_playingnow">Playing Now</string>
     <string name="title_mostpopular">Most Popular</string>
     <string name="title_detail">Detail</string>
+    <string name="title_error">Error, try again</string>
+    <string name="loading_error">Error, service temporarily unavailable</string>
+    <string name="loading_btn">Try Again</string>
+    <string name="link_page">Home page: <u>%1$s</u></string>
 </resources>

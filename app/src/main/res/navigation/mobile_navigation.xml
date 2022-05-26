@@ -3,13 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/navigation_home">
-
-    <fragment
-        android:id="@+id/navigation_home"
-        android:name="com.example.kmovies.ui.home.HomeFragment"
-        android:label="@string/title_home"
-        tools:layout="@layout/fragment_home" />
+    app:startDestination="@+id/navigation_playingnow">
 
     <fragment
         android:id="@+id/navigation_playingnow"
@@ -18,16 +12,20 @@
         tools:layout="@layout/fragment_playingnow" >
         <action
             android:id="@+id/toDescriptionFragment"
-            app:destination="@id/descriptionFragment" />
+            app:destination="@id/detailFragment" />
     </fragment>
 
     <fragment
-        android:id="@+id/navigation_notifications"
+        android:id="@+id/navigation_mostpopular"
         android:name="com.example.kmovies.ui.mostpopular.MostPopularFragment"
         android:label="@string/title_mostpopular"
-        tools:layout="@layout/fragment_mostpopular" />
+        tools:layout="@layout/fragment_mostpopular" >
+        <action
+            android:id="@+id/toDescriptionFragment"
+            app:destination="@id/detailFragment" />
+    </fragment>
     <fragment
-        android:id="@+id/descriptionFragment"
+        android:id="@+id/detailFragment"
         android:name="com.example.kmovies.ui.description.DescriptionFragment"
         android:label="@string/title_detail" >
         <action
@@ -35,6 +33,9 @@
             app:destination="@id/navigation_playingnow" />
         <argument
             android:name="movie"
-            app:argType="com.example.kmovies.data.remote.model.MovieResponse" />
+            app:argType="com.example.kmovies.data.remote.model.MovieDetailResponse" />
+        <action
+            android:id="@+id/toMostpopular"
+            app:destination="@id/navigation_mostpopular" />
     </fragment>
 </navigation>

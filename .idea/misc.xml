@@ -3,13 +3,24 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/AlienWare/AndroidStudioProjects/KMovies/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.3275" />
+        <entry key="..\:/AlienWare/AndroidStudioProjects/KMovies/app/src/main/res/drawable/ic_home_black_24dp.xml" value="0.3275" />
+        <entry key="..\:/AlienWare/AndroidStudioProjects/KMovies/app/src/main/res/drawable/ic_launcher_background.xml" value="0.3275" />
+        <entry key="..\:/AlienWare/AndroidStudioProjects/KMovies/app/src/main/res/drawable/ic_logo.xml" value="0.3275" />
+        <entry key="..\:/AlienWare/AndroidStudioProjects/KMovies/app/src/main/res/drawable/ic_playingnow.xml" value="0.3275" />
+        <entry key="..\:/AlienWare/AndroidStudioProjects/KMovies/app/src/main/res/drawable/ic_popular.xml" value="0.3275" />
         <entry key="..\:/AlienWare/AndroidStudioProjects/KMovies/app/src/main/res/drawable/layout_shape.xml" value="0.3275" />
+        <entry key="..\:/AlienWare/AndroidStudioProjects/KMovies/app/src/main/res/drawable/splashview.xml" value="0.3275" />
         <entry key="..\:/AlienWare/AndroidStudioProjects/KMovies/app/src/main/res/layout/activity_main.xml" value="0.3875" />
         <entry key="..\:/AlienWare/AndroidStudioProjects/KMovies/app/src/main/res/layout/fragment_description.xml" value="0.3875" />
         <entry key="..\:/AlienWare/AndroidStudioProjects/KMovies/app/src/main/res/layout/fragment_mostpopular.xml" value="0.3875" />
         <entry key="..\:/AlienWare/AndroidStudioProjects/KMovies/app/src/main/res/layout/fragment_playingnow.xml" value="0.3875" />
         <entry key="..\:/AlienWare/AndroidStudioProjects/KMovies/app/src/main/res/layout/movie_item.xml" value="0.3875" />
         <entry key="..\:/AlienWare/AndroidStudioProjects/KMovies/app/src/main/res/layout/movie_load_state_footer.xml" value="0.3875" />
+        <entry key="..\:/AlienWare/AndroidStudioProjects/KMovies/app/src/main/res/menu/bottom_nav_menu.xml" value="0.3875" />
+        <entry key="..\:/AlienWare/AndroidStudioProjects/KMovies/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.3275" />
+        <entry key="..\:/AlienWare/AndroidStudioProjects/KMovies/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.3275" />
+        <entry key="..\:/AlienWare/AndroidStudioProjects/KMovies/app/src/main/res/mipmap-xhdpi/ic_launcher.xml" value="0.3275" />
         <entry key="..\:/Users/AlienWare/AndroidStudioProjects/KMovies/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.14" />
         <entry key="..\:/Users/AlienWare/AndroidStudioProjects/KMovies/app/src/main/res/drawable/ic_dashboard_black_24dp.xml" value="0.14" />
         <entry key="..\:/Users/AlienWare/AndroidStudioProjects/KMovies/app/src/main/res/drawable/ic_home_black_24dp.xml" value="0.14" />

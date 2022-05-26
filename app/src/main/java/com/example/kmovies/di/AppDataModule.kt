@@ -1,6 +1,7 @@
 package com.example.kmovies.di
 
 import com.example.kmovies.data.remote.service.MovieService
+import com.example.kmovies.util.CommonConstants.BASE_URL
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -17,7 +18,7 @@ object AppDataModule {
     @Singleton
     fun provideRetrofit(): Retrofit =
         Retrofit.Builder()
-            .baseUrl(MovieService.BASE_URL)
+            .baseUrl(BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
 

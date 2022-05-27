@@ -2,7 +2,7 @@ package com.example.kmovies.util
 
 import java.text.ParseException
 import java.text.SimpleDateFormat
-import java.util.*
+import java.util.Locale
 
 object DateFormatConstants {
     const val YYYY_MM_DD = "yyyy-MM-dd"

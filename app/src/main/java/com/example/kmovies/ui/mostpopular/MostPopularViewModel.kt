@@ -7,7 +7,6 @@ import androidx.lifecycle.viewModelScope
 import com.example.kmovies.R
 import com.example.kmovies.domain.repository.MovieRepository
 import com.example.kmovies.domain.usecase.MostPopularUseCase
-import com.example.kmovies.domain.usecase.PlayingMoviesUseCase
 import com.example.kmovies.util.MovieUIState
 import kotlinx.coroutines.launch
 

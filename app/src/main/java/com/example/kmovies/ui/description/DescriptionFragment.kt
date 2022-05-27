@@ -3,9 +3,11 @@ package com.example.kmovies.ui.description
 import android.os.Bundle
 import android.text.method.LinkMovementMethod
 import android.view.LayoutInflater
+import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
@@ -30,7 +32,7 @@ class DescriptionFragment : Fragment() {
 
         val movie = args.movie
         setView(movie)
-
+        setHasOptionsMenu(true)
         return binding.root
     }
 
@@ -49,5 +51,13 @@ class DescriptionFragment : Fragment() {
             txtLink.text = getString(R.string.link_page, movie.homepage)
             txtLink.movementMethod = LinkMovementMethod.getInstance();
         }
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.getItemId()) {
+            android.R.id.home ->
+                findNavController().navigate(R.id.toNavigationPlayingnow)
+        }
+        return true
     }
 }

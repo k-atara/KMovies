@@ -17,6 +17,7 @@ import com.example.kmovies.databinding.FragmentPlayingnowBinding
 import com.example.kmovies.util.MovieUIState
 import dagger.hilt.android.AndroidEntryPoint
 
+
 @AndroidEntryPoint
 class PlayingNowFragment : Fragment(), PlayingNowAdapter.OnItemClickListener {
 
@@ -65,7 +66,7 @@ class PlayingNowFragment : Fragment(), PlayingNowAdapter.OnItemClickListener {
         observeUI()
         setHasOptionsMenu(true)
 
-        if(binding.playinNowList.verticalScrollbarPosition > 6)
+        if(adapter.itemCount > 6)
             binding.image.visibility = View.GONE
         else
             binding.image.visibility = View.VISIBLE

@@ -32,3 +32,4 @@ proyecto.
 o	Módulos con Android Library: Separaría los modulos por domain, data, utilities, network, etc. que es masomenos como las carpetas que cree, comunicando los distintos modulos con interfaces. Esto ayuda mucho tanto en la seguridad de la aplicación como en la organización de las diferentes partes de la app en caso de que se quiera dividir o escalar.
 
 ### Reflexión:
+Considero que ha sido un reto para mi desarrollar esta aplicación porque hace mucho que no hacia un proyecto desde cero y me gustó mucho probar esta nueva API.

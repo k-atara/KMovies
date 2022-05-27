@@ -85,7 +85,7 @@ class MostPopularFragment : Fragment(), PlayingNowAdapter.OnItemClickListener {
             when (it) {
                 is MovieUIState.Success -> {
                     binding.progressBar.visibility = View.GONE
-                    findNavController().navigate(MostPopularFragmentDirections.toDescriptionFragment(it.movie))
+                    findNavController().navigate(MostPopularFragmentDirections.toDescriptionFragment("popular", it.movie))
                 }
                 is MovieUIState.Error -> {
                     binding.progressBar.visibility = View.GONE

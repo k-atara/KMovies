@@ -46,8 +46,8 @@ class PlayingNowFragment : Fragment(), PlayingNowAdapter.OnItemClickListener {
             }
         }
 
-        viewLifecycleOwner.lifecycleScope.launch {
-            setObservable(adapter)
+        viewModel.collectMovies().observe(viewLifecycleOwner){
+            adapter.submitData(viewLifecycleOwner.lifecycle, it)
         }
 
         adapter.addLoadStateListener { loadState ->
@@ -65,17 +65,12 @@ class PlayingNowFragment : Fragment(), PlayingNowAdapter.OnItemClickListener {
             }
         }
         observeUI()
+        setHasOptionsMenu(true)
         return binding.root
     }
 
     override fun onItemClick(movie: MovieResponse) {
         viewModel.getMovie(movie.id)
-    }
-
-    private fun setObservable(adapter: PlayingNowAdapter) = viewLifecycleOwner.lifecycleScope.launch{
-        viewModel.collectMovies().observeForever {
-            adapter.submitData(viewLifecycleOwner.lifecycle, it)
-        }
     }
 
     private fun observeUI() {

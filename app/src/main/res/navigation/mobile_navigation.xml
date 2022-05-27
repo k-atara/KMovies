@@ -32,6 +32,9 @@
             android:id="@+id/toNavigationPlayingnow"
             app:destination="@id/navigation_playingnow" />
         <argument
+            android:name="from"
+            app:argType="string" />
+        <argument
             android:name="movie"
             app:argType="com.example.kmovies.data.remote.model.MovieDetailResponse" />
         <action

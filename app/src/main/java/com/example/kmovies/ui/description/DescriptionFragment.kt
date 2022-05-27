@@ -54,9 +54,9 @@ class DescriptionFragment : Fragment() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when (item.getItemId()) {
-            android.R.id.home ->
-                findNavController().navigate(R.id.toNavigationPlayingnow)
+        when (args.from) {
+            "playing" -> findNavController().navigate(R.id.toNavigationPlayingnow)
+            "popular" -> findNavController().navigate(R.id.toMostpopular)
         }
         return true
     }

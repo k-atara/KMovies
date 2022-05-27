@@ -58,12 +58,17 @@ class PlayingNowFragment : Fragment(), PlayingNowAdapter.OnItemClickListener {
                 if (loadState.source.refresh is LoadState.NotLoading &&
                     loadState.append.endOfPaginationReached &&
                     adapter.itemCount < 1){
-                    playinNowList.isVisible = false
-                }
+                        playinNowList.isVisible = false
+                    }
             }
         }
         observeUI()
         setHasOptionsMenu(true)
+
+        if(binding.playinNowList.verticalScrollbarPosition > 6)
+            binding.image.visibility = View.GONE
+        else
+            binding.image.visibility = View.VISIBLE
         return binding.root
     }
 
@@ -76,7 +81,7 @@ class PlayingNowFragment : Fragment(), PlayingNowAdapter.OnItemClickListener {
             when (it) {
                 is MovieUIState.Success -> {
                     binding.progressBar.visibility = View.GONE
-                    findNavController().navigate(PlayingNowFragmentDirections.toDescriptionFragment(it.movie))
+                    findNavController().navigate(PlayingNowFragmentDirections.toDescriptionFragment("playing", it.movie))
                 }
                 is MovieUIState.Error -> {
                     binding.progressBar.visibility = View.GONE

@@ -1,23 +1,21 @@
 package com.example.kmovies.ui.playingNow
 
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import android.widget.Toast
+import androidx.appcompat.widget.SearchView
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.observe
 import androidx.navigation.fragment.findNavController
 import androidx.paging.LoadState
 import androidx.recyclerview.widget.GridLayoutManager
+import com.example.kmovies.R
 import com.example.kmovies.data.remote.model.MovieResponse
 import com.example.kmovies.databinding.FragmentPlayingnowBinding
 import com.example.kmovies.util.MovieUIState
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class PlayingNowFragment : Fragment(), PlayingNowAdapter.OnItemClickListener {
@@ -92,5 +90,29 @@ class PlayingNowFragment : Fragment(), PlayingNowAdapter.OnItemClickListener {
             }
 
         }
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        super.onCreateOptionsMenu(menu, inflater)
+        inflater.inflate(R.menu.menu_search, menu)
+
+        val searchItem = menu.findItem(R.id.action_search)
+        val searchView = searchItem.actionView as SearchView
+
+        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener{
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                if (query!=null){
+                    binding.playinNowList.scrollToPosition(0)
+                    viewModel.searchMovies(query)
+                    searchView.clearFocus()
+                }
+                return true
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+                return true
+            }
+
+        })
     }
 }

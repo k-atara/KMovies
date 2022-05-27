@@ -66,6 +66,7 @@ class MostPopularFragment : Fragment(), PlayingNowAdapter.OnItemClickListener {
             }
         }
         observeUI()
+        setHasOptionsMenu(true)
         return binding.root
     }
 

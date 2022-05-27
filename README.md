@@ -30,6 +30,7 @@ proyecto.
 
 ### Objetivos que no se finalizarón:
 o	Módulos con Android Library: Separaría los modulos por domain, data, utilities, network, etc. que es masomenos como las carpetas que cree, comunicando los distintos modulos con interfaces. Esto ayuda mucho tanto en la seguridad de la aplicación como en la organización de las diferentes partes de la app en caso de que se quiera dividir o escalar.
+
 o	Visualización de videos en el detalle: Para implementar esta feature probablemente hubiera utilizado VideoView, nunca lo he usado pero por lo que investigué creo que puede funcionar. La verdad no encontré los videos, incluso en el endpoint de videos no estaban y en el detalle de movie solo venía como video: false, pero hubiera sido interesante implementar esta feature.
 
 ### Reflexión:

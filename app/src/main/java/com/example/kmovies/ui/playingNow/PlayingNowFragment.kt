@@ -1,6 +1,8 @@
 package com.example.kmovies.ui.playingNow
 
 import android.os.Bundle
+import android.util.Log
+import android.util.Log.ERROR
 import android.view.*
 import android.widget.Toast
 import androidx.appcompat.widget.SearchView
@@ -65,11 +67,6 @@ class PlayingNowFragment : Fragment(), PlayingNowAdapter.OnItemClickListener {
         }
         observeUI()
         setHasOptionsMenu(true)
-
-        if(adapter.itemCount > 6)
-            binding.image.visibility = View.GONE
-        else
-            binding.image.visibility = View.VISIBLE
         return binding.root
     }
 
